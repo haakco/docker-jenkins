@@ -35,9 +35,10 @@ RUN apt-get -o Acquire::http::proxy="$PROXY" update && \
     rm -rf /var/tmp/* && \
     rm -rf /tmp/*
 
-RUN usermod -aG docker jenkins &&
-    groupadd --gid 1001 dockerext &&
-    usermod -aG dockerext jenkins
+RUN usermod -aG docker jenkins && \
+    groupadd --gid 1001 dockerext && \
+    usermod -aG dockerext jenkins && \
+    usermod -aG root jenkins
 
 USER jenkins
 
