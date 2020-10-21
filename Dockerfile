@@ -35,7 +35,7 @@ RUN apt-get -o Acquire::http::proxy="$PROXY" update && \
     rm -rf /var/tmp/* && \
     rm -rf /tmp/*
 
-RUN groupmod -g && \
+RUN groupmod --gid 1001 docker && \
     usermod -aG docker jenkins && \
     usermod -aG root jenkins
 
